@@ -2,10 +2,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Repl.fs" />
     <Compile Include="Domain.fs" />
+    <Compile Include="Repl.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
