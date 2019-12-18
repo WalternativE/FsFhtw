@@ -53,5 +53,3 @@ let rec loop (state : State) =
     |> evaluate Domain.update state
     |> print
     |> loop
-
-    loop state
