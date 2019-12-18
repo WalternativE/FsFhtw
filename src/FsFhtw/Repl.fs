@@ -1,6 +1,7 @@
 module Repl
 
 open System
+open Parser
 
 type Message =
     | DomainMessage of Domain.Message
@@ -9,23 +10,12 @@ type Message =
 
 type State = Domain.State
 
-let safeEquals (it : string) (theOther : string) =
-    String.Equals(it, theOther, StringComparison.OrdinalIgnoreCase)
-
-[<Literal>]
-let HelpLabel = "Help"
-
-let (|Increment|Decrement|Help|ParseFailed|) (input : string) =
-    match input with
-    | i when safeEquals i (nameof Domain.Increment) -> Increment
-    | i when safeEquals i (nameof Domain.Decrement) -> Decrement
-    | i when safeEquals i HelpLabel -> Help
-    | _ -> ParseFailed
-
 let read (input : string) =
     match input with
     | Increment -> Domain.Increment |> DomainMessage
     | Decrement -> Domain.Decrement |> DomainMessage
+    | IncrementBy v -> Domain.IncrementBy v |> DomainMessage
+    | DecrementBy v -> Domain.DecrementBy v |> DomainMessage
     | Help -> HelpRequested
     | ParseFailed  -> NotParsable input
 
