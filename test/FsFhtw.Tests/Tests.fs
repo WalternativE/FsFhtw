@@ -19,6 +19,8 @@ let ``That incrementing twice on an initialized counter yields 2`` () =
 
     Assert.Equal(expected, actual)
 
+// not the best helper function for property based tests
+// because itselve has testable behavior
 let getInverse (message : Domain.Message) =
     match message with
     | Domain.Increment -> Domain.Decrement
