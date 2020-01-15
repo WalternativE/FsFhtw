@@ -434,6 +434,3 @@ $RECYCLE.BIN/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide
-
-src/**/*.fsx
-test/**/*.fsx
